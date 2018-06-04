@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Photogur</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="signups">
+      <ul>
+        <%=  content_tag('i', '', class: ['fab', 'fa-instagram'], id: 'logo') %>
+
+        <% if current_user %>
+          <li>Welcome, <%= current_user.first_name %>!</li>
+          <li id='signout'><%= link_to(content_tag('i', '', class:['fas', 'fa-sign-out-alt']), logout_path, method: "delete") %></li>
+
+        <% else %>
+          <li> <%= (link_to "Login", 'login') %></li>
+          <li> <%= (link_to "Sign Up", 'signup') %></li>
+        <% end %>
+      </ul>
+     </div>
+    <%= yield %>
+
+  </body>
+</html>

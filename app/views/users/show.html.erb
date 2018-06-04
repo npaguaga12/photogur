@@ -1,0 +1,27 @@
+
+
+<h1><%= "#{@user.first_name}'s Profile" %></h1>
+
+
+
+<%= link_to(content_tag('i', '', class:['fas', 'fa-home']), root_path, id:['icon']) %>
+
+
+<div class= 'profile'>
+
+  <% @user.pictures.each do |picture| %>
+
+  <div class = 'picsec'>
+    <% if picture.image.medium.url %>
+      <%= image_tag picture.image.medium.url, :style => 'border-radius:10px' %>
+    <% end %>
+
+    <div class= 'picstat'>
+        <%= picture.title %>
+        <%= link_to(content_tag('i', '', class:['fas', 'fa-camera']), picture) %>
+
+    </div>
+  </div>
+    <% end %>
+</div>
+<br>

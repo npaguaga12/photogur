@@ -1,0 +1,9 @@
+<%= link_to(content_tag('i', '', class:['fas', 'fa-search']), search_path, id:['search']) %>
+
+
+<div class= 'dashboard'
+<p> What's happening around the Photogur world? </p>
+<% @pictures.each do |pic| %>
+<%= image_tag pic.image.medium.url, :style => 'border-radius:10px'%>
+<% end %>
+</div>

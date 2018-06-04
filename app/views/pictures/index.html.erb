@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<div class= "subhead">
+
+<h1><%= @is_profile ? "#{current_user.first_name}'s Profile" : "Dashboard" %></h1>
+
+<% if @is_profile %>
+  <%= link_to(content_tag('i', '', class:['fas', 'fa-home']), root_path, id:['icon']) %>
+  <%= render "myprofile" %>
+<% else %>
+  <%= link_to(content_tag('i', '', class:['far', 'fa-user-circle']), myprofile_path, id:['icon']) %>
+  <%= render "dashboard" %>
+<% end %>
+</div>

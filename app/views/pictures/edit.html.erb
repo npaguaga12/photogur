@@ -1,0 +1,7 @@
+<h1>Editing Picture</h1>
+
+<%= render 'form', picture: @picture %>
+
+
+<%= link_to(content_tag('i', '', class:['fas', 'fa-camera']), @picture) %>
+<%= link_to(content_tag('i', '', class:['fas', 'fa-undo-alt']), myprofile_path) %>

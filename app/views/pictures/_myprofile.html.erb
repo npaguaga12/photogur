@@ -1,0 +1,23 @@
+<div id="newpic">
+<%= link_to(content_tag('i', '', class:['fas', 'fa-plus']), new_picture_path) %>
+</div>
+
+<div class= 'profile'>
+
+  <% @pictures.each do |picture| %>
+
+  <div class='picsec'>
+    <% if picture.image.medium.url %>
+      <%= image_tag picture.image.medium.url, :style => 'border-radius:10px' %>
+    <% end %>
+    <div class= 'picstat'>
+      <%= picture.title %>
+      <br>
+      <%= link_to(content_tag('i', '', class:['fas', 'fa-camera']), picture) %>
+      <%= link_to(content_tag('i', '', class:['fas', 'fa-edit']), edit_picture_path(picture)) %>
+      <%= link_to(content_tag('i', '', class:['far', 'fa-trash-alt']), picture, method: :delete, data: { confirm: 'Are you sure?' }) %>
+    </div>
+  </div>
+    <% end %>
+</div>
+<br>

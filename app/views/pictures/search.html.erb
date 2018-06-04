@@ -1,0 +1,15 @@
+<%= link_to(content_tag('i', '', class:['fas', 'fa-home']), root_path, id:['icon']) %>
+
+
+<h1>Search Users</h1>
+<%= form_tag search_path do %>
+  <%= search_field_tag :term %>
+  <%= submit_tag "Go!" %>
+<% end %>
+
+<br>
+
+<% if @result %>
+<h4>Search Results:</h4>
+  <%= link_to @result.first_name, @result %>
+<% end %>
